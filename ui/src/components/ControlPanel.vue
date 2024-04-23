@@ -196,9 +196,13 @@ export default {
 
 
 	},
+	created() {
+
+		// window.addEventListener('beforeunload',this.getinitialstate);
+	},
 	mounted() {
-
-
+		// var _this = this;
+		// _this.getWebsocketConnection();
 
 	},
 	methods: {
@@ -256,6 +260,19 @@ export default {
 			'setCOMPcolor',
 			'SENDCOMPCONTROL',
 		]),
+
+		getinitialstate() {
+			// get the initial state of controllers
+			this.getInitialValve1State();
+			this.getInitialValve2State();
+			this.getInitialValve3State();
+			this.getInitialValve4State();
+			this.getInitialValve5State();
+			this.getInitialValve6State();
+			this.getInitialValve7State();
+			this.getInitialFansState();
+			this.getInitialCompState();
+		},
 
 		getInitialValve1State() {
 			if (this.$store.state.command.V1 == 1) {
@@ -429,7 +446,7 @@ export default {
 						console.log(this.V1msg);
 						this.V1SwitchControllor = false;
 					}
-				}, 1000);
+				}, 5000);
 
 			} else if (this.V1SwitchControllor == true && this.$store.state.command.V1 == 1) {
 
@@ -457,7 +474,7 @@ export default {
 						console.log(this.V1msg);
 						this.V1SwitchControllor = true;
 					}
-				}, 1000);
+				}, 5000);
 
 			} else {
 				alert(this.V1msg);
@@ -496,7 +513,7 @@ export default {
 						console.log(this.V2msg);
 						this.V2SwitchControllor = false;
 					}
-				}, 1000);
+				}, 5000);
 
 			} else if (this.V2SwitchControllor == true && this.$store.state.command.V2 == 1) {
 
@@ -524,7 +541,7 @@ export default {
 						console.log(this.V2msg);
 						this.V2SwitchControllor = true;
 					}
-				}, 1000);
+				}, 5000);
 
 			} else {
 				alert(this.V2msg);
@@ -563,7 +580,7 @@ export default {
 						console.log(this.V3msg);
 						this.V3SwitchControllor = false;
 					}
-				}, 1000);
+				}, 5000);
 
 			} else if (this.V3SwitchControllor == true && this.$store.state.command.V3 == 1) {
 
@@ -591,7 +608,7 @@ export default {
 						console.log(this.V3msg);
 						this.V3SwitchControllor = true;
 					}
-				}, 1000);
+				}, 5000);
 
 			} else {
 				alert(this.V3msg);
@@ -629,7 +646,7 @@ export default {
 						console.log(this.V4msg);
 						this.V4SwitchControllor = false;
 					}
-				}, 1000);
+				}, 5000);
 
 			} else if (this.V4SwitchControllor == true && this.$store.state.command.V4 == 1) {
 
@@ -657,7 +674,7 @@ export default {
 						console.log(this.V4msg);
 						this.V4SwitchControllor = true;
 					}
-				}, 1000);
+				}, 5000);
 
 			} else {
 				alert(this.V4msg);
@@ -696,7 +713,7 @@ export default {
 						console.log(this.V5msg);
 						this.V5SwitchControllor = false;
 					}
-				}, 1000);
+				}, 5000);
 
 			} else if (this.V5SwitchControllor == true && this.$store.state.command.V5 == 1) {
 
@@ -724,7 +741,7 @@ export default {
 						console.log(this.V5msg);
 						this.V5SwitchControllor = true;
 					}
-				}, 1000);
+				}, 5000);
 
 			} else {
 				alert(this.V5msg);
@@ -764,7 +781,7 @@ export default {
 						console.log(this.V6msg);
 						this.V6SwitchControllor = false;
 					}
-				}, 1000);
+				}, 5000);
 
 			} else if (this.V6SwitchControllor == true && this.$store.state.command.V6 == 1) {
 
@@ -792,7 +809,7 @@ export default {
 						console.log(this.V6msg);
 						this.V6SwitchControllor = true;
 					}
-				}, 1000);
+				}, 5000);
 
 			} else {
 				alert(this.V6msg);
@@ -832,7 +849,7 @@ export default {
 						console.log(this.V7msg);
 						this.V7SwitchControllor = false;
 					}
-				}, 1000);
+				}, 5000);
 
 			} else if (this.V7SwitchControllor == true && this.$store.state.command.V7 == 1) {
 
@@ -860,7 +877,7 @@ export default {
 						console.log(this.V7msg);
 						this.V7SwitchControllor = true;
 					}
-				}, 1000);
+				}, 5000);
 
 			} else {
 				alert(this.V7msg);
@@ -901,7 +918,7 @@ export default {
 						console.log(this.W1msg);
 						this.W1SwitchControllor = false;
 					}
-				}, 1000);
+				}, 5000);
 
 			} else if (this.W1SwitchControllor == true && this.$store.state.command.W1 == 1) {
 
@@ -929,7 +946,7 @@ export default {
 						console.log(this.W1msg);
 						this.W1SwitchControllor = true;
 					}
-				}, 1000);
+				}, 5000);
 
 			} else {
 				alert(this.W1msg + this.$store.state.command.W1 + this.W1SwitchControllor);
@@ -971,7 +988,7 @@ export default {
 						console.log(this.COMPmsg);
 						this.COMPSwitchControllor = false;
 					}
-				}, 1000);
+				}, 5000);
 
 			} else if (this.COMPSwitchControllor == true && this.$store.state.command.Comp == 1) {
 
@@ -999,7 +1016,7 @@ export default {
 						console.log(this.COMPmsg);
 						this.COMPSwitchControllor = true;
 					}
-				}, 1000);
+				}, 5000);
 
 			} else {
 				alert(this.COMPmsg + this.$store.state.command.Comp + this.COMPSwitchControllor);
@@ -1101,81 +1118,8 @@ export default {
 					this.setRecorderCurrentTime(msgTime);//msgtime is start from restart of equipment, so in this experiment this time will not be recorded
 					this.setCurrentDate(new Date().toLocaleString());
 
-					// console.log(this.$store.state.rawData.Current_time);
-
-					// if (!isNaN(thisTime) && !isNaN(PS1)) {
-					// 	series.append(msgTime + thisDelay, PS1) // for chart
-
-					// 	//dispatch value to rawdatastore_sensors
-					// 	// this.setPS1_value(PS1);
-					// 	// this.setPS2_value(PS2);
-					// 	// this.setPS3_value(PS3);
-					// 	// this.setTS1_value(TS1);
-					// 	// this.setTS2_value(TS2);
-					// 	// this.setTS3_value(TS3);
-					// 	// this.setTS4_value(TS4);
-					// 	// this.setTS5_value(TS5);
-					// 	// this.setFlow_value(flow);
-					// 	// this.setPower_value(power);
-					// 	// this.setTSA_value(TSA);
-					// 	// this.setPSA_value(PSA);
-					// 	// this.setHSA_value(HSA);
-
-					// 	// console.log(this.$store.state.rawData.PS1_value)
-
-
-					// 	// _this.$store.dispatch('SETPS2_value', PS2);
-					// 	// _this.$store.dispatch('SETPS3_value', PS3);
-					// 	// _this.$store.dispatch('SETTS1_value', TS1);
-					// 	// _this.$store.dispatch('SETTS2_value', TS2);
-					// 	// _this.$store.dispatch('SETTS3_value', TS3);
-					// 	// _this.$store.dispatch('SETTS4_value', TS4);
-					// 	// _this.$store.dispatch('SETTS5_value', TS5);
-					// 	// _this.$store.dispatch('SETFlow_value', flow);
-					// 	// _this.$store.dispatch('SETPower_value', power);
-					// 	// _this.$store.dispatch('SETTSA_value', TSA);
-					// 	// _this.$store.dispatch('SETPSA_value', PSA);
-					// 	// _this.$store.dispatch('SETHSA_value', HSA);
-
-					// 	//dispatch value to rawdatastore_controllers
-					// 	// this.setV1(V1);
-					// 	// this.setV2(V2);
-					// 	// this.setV3(V3);
-					// 	// this.setV4(V4);
-					// 	// this.setV5(V5);
-					// 	// this.setV6(V6);
-					// 	// this.setV7(V7);
-					// 	// this.setV8(V8);
-					// 	// this.setW1(W1);
-					// 	// this.setW2(W2);
-					// 	// this.setComp(comp);
-					// 	// this.setCurrentTime(msgTime);
-
-					// 	// _this.$store.dispatch('SETV1', V1);
-					// 	// _this.$store.dispatch('SETV2', V2);
-					// 	// _this.$store.dispatch('SETV3', V3);
-					// 	// _this.$store.dispatch('SETV4', V4);
-					// 	// _this.$store.dispatch('SETV5', V5);
-					// 	// _this.$store.dispatch('SETV6', V6);
-					// 	// _this.$store.dispatch('SETV7', V7);
-					// 	// // _this.$store.dispatch('SETV8',V8);
-					// 	// _this.$store.dispatch('SETW1', W1);
-					// 	// _this.$store.dispatch('SETW2', W2);
-					// 	// _this.$store.dispatch('SETComp', comp);
-
-					// 	// _this.$store.dispatch('setCurrentTime', msgTime);			//for output graph
-
-
-					// 	console.log("2" + obj);
-					// 	if (debug) {
-					// 		console.log(delay, thisDelay, msgTime, enc)
-					// 	}
-					// }
-					// else {
-					// 	if (debug) {
-					// 		console.log("NaN so not logging to smoothie", delay, thisDelay, msgTime, enc)
-					// 	}
-					// }
+					// get the initial state of controllers
+					this.getinitialstate();
 
 				} catch (e) {
 					if (debug) {
@@ -1184,17 +1128,8 @@ export default {
 				}
 
 			};
-			
-			// get the initial state of controllers
-			this.getInitialValve1State();
-			this.getInitialValve2State();
-			this.getInitialValve3State();
-			this.getInitialValve4State();
-			this.getInitialValve5State();
-			this.getInitialValve6State();
-			this.getInitialValve7State();
-			this.getInitialFansState();
-			this.getInitialCompState();
+
+
 
 			window.addEventListener('keydown', this.hotkey, false);
 			//window.addEventListener('pagehide', this.free);				//closing window
